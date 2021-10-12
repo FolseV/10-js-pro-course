@@ -16,6 +16,7 @@ interface Emoji {
 }
 
 class EmojiContainer extends React.Component {
+  // class EmojiContainer extends React.Component<Props,State> {
   props: Props;
   state: State;
 
@@ -42,17 +43,17 @@ class EmojiContainer extends React.Component {
     fetch(
       "https://raw.githubusercontent.com/FolseV/js-pro-course/lessons/38/lessons/38/emojiList.json"
     )
-      .then((res) => {
+      .then((res): Promise<Emoji[]> => {
         return res.json();
       })
-      //   .then((emojiList: Emoji[]): Emoji[] => {
-      .then((emojiList: Emoji[]) => {
+      // .then((emojiList: Emoji[]): Emoji[] => {
+      .then((emojiList) => {
         this.setState({ emojiList });
       })
       .catch((error) => console.log(error));
   }
 
-  //   let filteredList = this.filterEmojis(this.props.searchValue, this.state.emojiList)
+  // let filteredList = this.filterEmojis(this.props.searchValue, this.state.emojiList)
 
   render() {
     const filteredList = this.filterEmojis(

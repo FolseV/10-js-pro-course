@@ -1,4 +1,5 @@
 import React from "react";
+import { ChangeEvent } from "react";
 import "./SearchInput.css";
 
 interface Props {
@@ -14,9 +15,9 @@ class SearchInput extends React.Component {
 
     this.props = props;
   }
-  //   eventHandler = (event: Event): void => {
-  //     this.props.searchValueChange(event.target.value);
-  //   };
+  eventHandler = (event: ChangeEvent<HTMLInputElement>): void => {
+    this.props.searchValueChange(event.target.value);
+  };
   //   eventHandler = (newValue: string): void => {
   //     this.props.searchValueChange(event.target.value);
   //   };
@@ -27,9 +28,7 @@ class SearchInput extends React.Component {
         <span className="inputText"> Title, Symbol or Keyword </span>
         <input
           value={this.props.searchValue}
-          onChange={(event) => {
-            this.props.searchValueChange(event.target.value);
-          }}
+          onChange={this.eventHandler}
         ></input>
       </>
     );
