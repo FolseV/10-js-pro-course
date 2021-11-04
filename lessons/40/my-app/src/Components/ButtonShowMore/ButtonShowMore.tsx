@@ -3,7 +3,7 @@ import { LoadedContext, VarContext } from "../../myContext";
 import styles from "./ButtonShowMore.module.css";
 
 const ButtonShowMore: React.FC = () => {
-  const [value, setValue] = useContext(VarContext);
+  const [, setValue] = useContext(VarContext);
   const [loaded] = useContext(LoadedContext);
   if (loaded === true) {
     return (

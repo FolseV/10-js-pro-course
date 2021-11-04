@@ -17,7 +17,7 @@ interface Props {
 const Row: React.FC<Props> = (props) => {
   const [value, setValue] = useContext(VarContext);
   const [theme] = useContext(ThemeContext);
-  const [authorId, setAuthorId] = useContext(AuthorIdContext);
+  const [, setAuthorId] = useContext(AuthorIdContext);
 
   useEffect(() => {
     setValue(5); // change list number to 5 when loaded

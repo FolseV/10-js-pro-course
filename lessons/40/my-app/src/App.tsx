@@ -111,6 +111,11 @@ function App() {
               })}
             >
               <Switch>
+                <Route path="/posts" exact>
+                  <Row active setActive={setModalActive} author={author} posts={users} />
+                  <ButtonShowMore />
+                  <Modal active={modalActive} setActive={setModalActive} author={author} />
+                </Route>
                 <Route path="/users" exact>
                   <Users author={author} />
                 </Route>
@@ -120,11 +125,7 @@ function App() {
                 <Route path="/posts/:postId/comments" exact>
                   <Comment comments={comments} />
                 </Route>
-                <Route path="/posts" strict>
-                  <Row active setActive={setModalActive} author={author} posts={users} />
-                  <ButtonShowMore />
-                  <Modal active={modalActive} setActive={setModalActive} author={author} />
-                </Route>
+
                 <Redirect from="/" to="/posts" />
               </Switch>
             </div>
