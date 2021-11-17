@@ -1,6 +1,5 @@
 import React from "react";
 import { useActions } from "../../hooks/useActions";
-
 import styles from "./ThemeButton.module.css";
 
 const ThemeButton: React.FC = () => {
