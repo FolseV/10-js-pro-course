@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./app.module.css";
 import Posts from "./components/Posts";
-import { BrowserRouter as Router, Routes, Route, Redirect, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect, NavLink } from "react-router-dom";
 import ThemeButton from "./components/ThemeButton";
 import classNames from "classnames/bind";
 import Users from "./components/Users";
@@ -48,7 +48,7 @@ function App() {
             appDark: theme,
           })}
         >
-          <Routes>
+          <Switch>
             <Route path="/posts">
               <Posts active setActive={setModalActive} />
               <Modal active={modalActive} setActive={setModalActive} />
@@ -63,7 +63,7 @@ function App() {
               <Comments />
             </Route>
             <Redirect from="/" to="/posts" />
-          </Routes>
+          </Switch>
         </div>
       </div>
     </Router>
