@@ -40,7 +40,7 @@ interface FetchPostsDetailsAction {
 
 interface FetchPostsDetailsSuccessAction {
   type: PostsActionTypes.FETCH_POSTS_DETAILS_SUCCESS;
-  payload: PostsType[];
+  payload: PostsType;
 }
 
 interface FetchPostsDetailsErrorAction {
@@ -53,7 +53,7 @@ interface FindPostIdAction {
 }
 export interface PostsState {
   posts: PostsType[];
-  postDetails: PostsType[];
+  postDetails: PostsType | null;
   loading: boolean;
   error: null | string;
   postsNumber: number;

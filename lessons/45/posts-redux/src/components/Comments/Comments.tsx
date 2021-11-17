@@ -12,7 +12,7 @@ const Comments = () => {
 
   useEffect(() => {
     fetchComments(params.postId);
-  }, []);
+  }, [fetchComments, params.postId]);
 
   if (loading) {
     return <img src={logo} alt="loading..." />;

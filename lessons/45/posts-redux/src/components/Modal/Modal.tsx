@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useTypedSelector from "../../hooks";
 import classNames from "classnames/bind";
 import styles from "./Modal.module.css";
-import { useActions } from "../../hooks/useActions";
 
 const cx = classNames.bind(styles);
 
@@ -15,11 +14,6 @@ const Modal: React.FC<Props> = (props) => {
   const { theme } = useTypedSelector((state) => state.theme);
   const { postId } = useTypedSelector((state) => state.posts);
   const { users } = useTypedSelector((state) => state.users);
-  const { fetchUsers } = useActions();
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   let newUser = users.filter((user) => user.id === postId);
 

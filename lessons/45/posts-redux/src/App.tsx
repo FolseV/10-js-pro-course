@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./app.module.css";
 import Posts from "./components/Posts";
 import { BrowserRouter as Router, Switch, Route, Redirect, NavLink } from "react-router-dom";
@@ -8,7 +8,6 @@ import Users from "./components/Users";
 import PostDetails from "./components/PostDetails";
 import Comments from "./components/Comments";
 import useTypedSelector from "./hooks";
-// import { useActions } from "./hooks/useActions";
 import Modal from "./components/Modal";
 
 let cx = classNames.bind(styles);
@@ -16,13 +15,6 @@ let cx = classNames.bind(styles);
 function App() {
   const { theme } = useTypedSelector((state) => state.theme);
   const [modalActive, setModalActive] = useState<boolean>(false);
-  // const { fetchPosts, fetchUsers, fetchComments } = useActions();
-
-  // useEffect(() => {
-  //   fetchPosts();
-  //   fetchUsers();
-  //   fetchComments("1");
-  // }, []);
 
   return (
     <Router>
@@ -49,17 +41,17 @@ function App() {
           })}
         >
           <Switch>
-            <Route path="/posts">
+            <Route path="/posts" exact>
               <Posts active setActive={setModalActive} />
               <Modal active={modalActive} setActive={setModalActive} />
             </Route>
-            <Route path="/users">
+            <Route path="/users" exact>
               <Users />
             </Route>
-            <Route path="/posts/:postId">
+            <Route path="/posts/:postId" exact>
               <PostDetails />
             </Route>
-            <Route path="/posts/:postId/comments">
+            <Route path="/posts/:postId/comments" exact>
               <Comments />
             </Route>
             <Redirect from="/" to="/posts" />

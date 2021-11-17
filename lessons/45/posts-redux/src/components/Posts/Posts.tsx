@@ -20,7 +20,7 @@ const Posts: React.FC<Props> = (props) => {
   useEffect(() => {
     fetchPosts();
     fetchUsers();
-  }, []);
+  }, [fetchUsers, fetchPosts]);
 
   if (loading) {
     return <img src={logo} alt="loading..." />;
