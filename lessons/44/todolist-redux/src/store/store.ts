@@ -6,6 +6,8 @@ import reducerTodos from "./reducer/reducerTodos";
 //for tests
 const preloadedState: Todo[] = [
   { id: "string", description: "string", completed: false, edit: false },
+  // { id: "string2", description: "string", completed: true, edit: false },
+  // { id: "string3", description: "string", completed: false, edit: false },
 ];
 
 //localstorage

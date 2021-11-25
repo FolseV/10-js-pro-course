@@ -76,7 +76,7 @@ const ToDoList: React.FC<Props> = (props) => {
             >
               {todo.edit ? <SaveIcon /> : <CreateIcon />}
             </IconButton>
-            <FormControlLabel
+            {/* <FormControlLabel
               htmlFor="first-checkBox"
               label="First Checkbox"
               control={
@@ -90,7 +90,7 @@ const ToDoList: React.FC<Props> = (props) => {
                   inputProps={{ "aria-labelledby": "primary checkbox" }}
                 />
               }
-            />
+            /> */}
             <input
               type="checkbox"
               data-testid="checkboxTodo"
